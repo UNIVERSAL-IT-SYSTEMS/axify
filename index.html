@@ -11,11 +11,14 @@
 <a-scene>
     <a-assets>
         <a-asset-item id="axe-obj" src="assets/models/axe.obj/axe.obj"></a-asset-item>
-        <a-asset-item id="axe-mtl" src="assets/models/axe.obj/axe.mtl" sound="src: assets/audio/chop.mp3; on: click"></a-asset-item>
+        <a-asset-item id="axe-mtl" src="assets/models/axe.obj/axe.mtl">
+        <audio id="chop" src="assets/audio/chop.mp3">
 
         <a-asset-item id="wood-obj" src="assets/models/wood.obj/wood.obj"></a-asset-item>
         <a-asset-item id="wood-mtl" src="assets/models/wood.obj/wood.mtl"></a-asset-item>
     </a-assets>
+
+    <a-entity sound="src: assets/audio/chop.mp3; autoplay: true;loop: true;"></a-entity>
     <a-entity position="1 1.8 2">
         <a-camera id="camera">
             <a-cursor color="#4CC3D9"></a-cursor>
