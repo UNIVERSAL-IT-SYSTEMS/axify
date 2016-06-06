@@ -7,28 +7,20 @@
     <script src="node_modules/aframe/dist/aframe.js"></script>
 </head>
 <body>
+
 <a-scene>
     <a-assets>
-        <img id="shadow2" src="../../assets/img/radial-shadow-2.png">
-    </a-assets>
+        <a-asset-item id="axe-obj" src="assets/models/axe.obj/axe.obj"></a-asset-item>
+        <a-asset-item id="axe-mtl" src="assets/models/axe.obj/axe.mtl"></a-asset-item>
 
-    <a-entity position="0 1.8 4">
+    </a-assets>
+    <a-entity position="1 1.8 2">
         <a-camera id="camera">
             <a-cursor color="#4CC3D9"></a-cursor>
         </a-camera>
     </a-entity>
 
-    <a-box id="orange-cube" position="0 3.5 -2" rotation="30 30 0" width="2" depth="2"
-           height="2" color="#F16745" roughness="0.8">
-        <a-event name="cursor-mouseenter" scale="3 1 1" color="#FFC65D"></a-event>
-        <a-event name="cursor-mouseenter" target="#shadow" scale="3 2 2"></a-event>
-        <a-event name="cursor-mouseleave" scale="1 1 1" color="#F16745"></a-event>
-        <a-event name="cursor-mouseleave" target="#shadow" scale="2 2 2"></a-event>
-    </a-box>
-
-    <a-image id="shadow" position="0 0 -2" src="#shadow2" opacity="0.5" rotation="-90 0 0"
-             scale="2 2 2"></a-image>
-    <a-sky color="#ECECEC"></a-sky>
+    <a-entity obj-model="obj: #axe-obj; mtl: #axe-mtl"></a-entity>
 </a-scene>
 </body>
 </html>
