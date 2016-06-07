@@ -5,6 +5,7 @@
     <title>Cursor</title>
     <meta name="description" content="Cursor — A-Frame">
     <script src="node_modules/aframe/dist/aframe.js"></script>
+
 </head>
 <body>
 
@@ -18,7 +19,7 @@
         <a-asset-item id="wood-mtl" src="assets/models/wood.obj/wood.mtl"></a-asset-item>
     </a-assets>
 
-    <a-entity sound="src: assets/audio/chop.mp3; autoplay: true;loop: true;"></a-entity>
+    <a-entity sound="src: assets/audio/chop.mp3;"></a-entity>
     <a-entity position="1 1.8 2">
         <a-camera id="camera">
             <a-cursor color="#4CC3D9"></a-cursor>
@@ -26,10 +27,22 @@
     </a-entity>
 
     <a-entity obj-model="obj: #wood-obj; mtl: #wood-mtl" scale="0.5 1 1" position="-5 -2 -2"></a-entity>
-    <a-entity obj-model="obj: #axe-obj; mtl: #axe-mtl" position="-2 2 -5" rotation="0 -45 15">
-        <a-animation attribute="rotation" repeat="indefinite" to="360 -45 15"></a-animation>
+    <a-entity obj-model="obj: #axe-obj; mtl: #axe-mtl" position="-1.5 2 -5" rotation="0 -65 15">
+        <a-animation attribute="rotation" repeat="indefinite" to="360 -65 15"></a-animation>
 
     </a-entity>
 </a-scene>
+<script>
+    var entity = document.querySelector('[sound]');
+    function sup() {
+        setTimeout(function () {
+            entity.pause();
+            entity.play();
+            sup();
+        }, 1000)
+    }
+
+    sup();
+</script>
 </body>
 </html>
